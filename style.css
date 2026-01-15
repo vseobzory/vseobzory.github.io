@@ -1,54 +1,429 @@
+:root {
+    --primary-color: #000;
+    --accent-color: #4CAF50; /* A fresh green, similar to brand-hub's vibe or just professional */
+    --text-color: #333;
+    --bg-color: #ffffff;
+    --secondary-bg: #f9f9f9;
+    --border-color: #e0e0e0;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header h1 {
     margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header p {
+    margin: 0.5rem 0 0;
+    color: #666;
+    font-size: 1.1rem;
 }
 
 .container {
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
     margin: auto;
-    overflow: hidden;
     padding: 20px;
 }
 
-.review-card {
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* SEO Content Styles */
+.seo-content {
+    max-width: 800px;
+    margin: 40px auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
-.review-card h2 {
+.seo-content h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.seo-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.seo-content p {
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+.seo-content ul, .seo-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.seo-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Table of Contents */
+.toc {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.toc h3 {
     margin-top: 0;
-    color: #2c3e50;
+    font-size: 1.2rem;
+    color: #333;
 }
 
-.rating {
-    color: #f39c12;
-    font-weight: bold;
+.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc li {
+    margin-bottom: 8px;
+}
+
+.toc a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.toc a:hover {
+    color: var(--accent-color);
+}
+
+/* Detailed Agency Review Card */
+.agency-review-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.agency-review-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.agency-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.agency-meta span {
+    background: #f0f0f0;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: #666;
+}
+
+.agency-meta span.highlight {
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* FAQ and Glossary */
+.faq-item, .glossary-item {
+    margin-bottom: 25px;
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.faq-item h4, .glossary-item h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.rating-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+}
+
+.rating-table th, .rating-table td {
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+.rating-table th {
+    background-color: #f9f9f9;
+    font-weight: 700;
+    color: #333;
+}
+
+.rating-table tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+@media (min-width: 1024px) {
+    .container.long-read-container {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+    
+    .toc {
+        position: sticky;
+        top: 40px;
+    }
+    
+    .seo-content {
+        margin-top: 0;
+        max-width: 100%;
+    }
+}
+
+
+/* Categories Grid Styles */
+.categories-section {
+    margin-top: 40px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--primary-color);
+}
+
+.category-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--primary-color);
+}
+
+.category-desc {
+    color: #666;
+    font-size: 1rem;
+    margin: 0 0 20px;
+    flex-grow: 1;
+}
+
+.category-link {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.category-card.coming-soon {
+    opacity: 0.6;
+    pointer-events: none;
+    border-style: dashed;
+}
+
+/* Rating Table/List Styles */
+.rating-section {
+    margin-top: 40px;
+}
+
+.rating-header-row {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--primary-color);
+    font-weight: 700;
+    color: #777;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.rating-header-row span:nth-child(1) { width: 60px; text-align: center; } /* Rank */
+.rating-header-row span:nth-child(2) { flex-grow: 1; padding-left: 20px; } /* Agency */
+.rating-header-row span:nth-child(3) { width: 100px; text-align: center; } /* Score */
+.rating-header-row span:nth-child(4) { width: 120px; } /* Button space */
+
+.rating-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rating-item {
+    display: flex;
+    align-items: center; /* Center vertically but... */
+    align-items: flex-start; /* Align top for better reading of long descriptions */
+    background: #fff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 25px 0;
+    transition: background-color 0.2s;
+}
+
+.rating-item:hover {
+    background-color: var(--secondary-bg);
+}
+
+.rank {
+    font-size: 2rem;
+    font-weight: 700;
+    width: 60px;
+    text-align: center;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.agency-info {
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+.agency-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0 0 10px;
+}
+
+.agency-desc {
+    color: #555;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.rating-score {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    width: 100px;
+    text-align: center;
+    flex-shrink: 0;
+    padding-top: 5px; /* Align with title */
+}
+
+.details-btn {
+    text-decoration: none;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    width: 100px;
+    text-align: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.details-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--secondary-bg);
+    color: #666;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 40px 0;
+    margin-top: 60px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .rating-header-row { display: none; }
+    
+    .rating-item {
+        flex-wrap: wrap;
+    }
+    
+    .rank {
+        width: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .agency-info {
+        width: calc(100% - 60px); /* Full width minus rank */
+        padding-right: 0;
+    }
+    
+    .rating-score {
+        width: auto;
+        margin: 15px 0 0 60px;
+    }
+    
+    .details-btn {
+        margin: 15px 0 0 20px;
+    }
 }
