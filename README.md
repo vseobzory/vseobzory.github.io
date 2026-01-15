@@ -1,16 +1,13 @@
-## Hi there 👋
+# Все Обзоры (vseobzory)
 
-<!--
-**vseobzory/vseobzory** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Добро пожаловать в репозиторий проекта "Все Обзоры".
 
-Here are some ideas to get you started:
+## О проекте
+Это сайт с честными обзорами на различные товары и услуги. В данный момент сайт находится в стадии разработки.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Структура
+- `index.html`: Главная страница сайта.
+- `style.css`: Основные стили.
+
+## Запуск
+Проект предназначен для размещения на GitHub Pages.
